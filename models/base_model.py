@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import uuid
-import datetime
+from datetime import datetime
 
 """
 base_model - 1 class
@@ -12,9 +12,19 @@ class BaseModel():
     """
     Class for the models to build on
     """
-    id = str(uuid.uuid4())
-    created_at = datetime.datetime.now()
-    updated_at = datetime.datetime.now()
+    def __init__(self, *args, **kwargs):
+        """
+        """
+        if len(kwargs) > 0:
+            for (k, v) in kwargs.items():
+                if k in ('created_at', 'updated_at'):
+                    self.__dict__[k] = datetime.strptime(v, '%Y-%m-%dT%H:%M:%S.%f')
+                else:
+                    self.__dict__[k] = v
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
 
     def __str__(self):
         """
@@ -31,7 +41,7 @@ class BaseModel():
 
     def save(self):
         """ Update the time """
-        self.updated_at = datetime.datetime.now()
+        self.updated_at = datetime.now()
 
     def to_dict(self):
         """ Return a dict representation """
