@@ -53,3 +53,14 @@ class FileStorage():
         if os.path.isfile(self.__file_path):
             with open(self.__file_path, "r", encoding='utf-8') as myFile:
                 self.__objects = json.load(myFile)
+
+    @property
+    def objects(self):
+        """ Getter for objects """
+        return self.__class__.__objects
+
+    @objects.setter
+    def objects(self):
+        """ Setter for objects """
+        obj = {}
+        self.__class__.__objects = obj
