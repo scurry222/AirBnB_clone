@@ -12,6 +12,11 @@ class FileStorage():
 
     def new(self, obj):
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
+        if obj.__class__.__name__ == "User":
+            new_dict = {'email': obj.email, 'password': obj.password}
+            new = {'first_name': obj.first_name, 'last_name': obj.last_name}
+            new.update(new_dict)
+            new.update(obj.to_dict())
         self.__objects[key] = obj.to_dict()
 
     def save(self):

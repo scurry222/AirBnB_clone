@@ -29,7 +29,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, inp):
         if not inp:
             print("** class name missing **")
-        elif inp == "BaseModel":
+        elif inp == "BaseModel" or inp == "User":
             obj = BaseModel()
             obj.save()
             print("{}".format(obj.id))
@@ -43,7 +43,7 @@ class HBNBCommand(cmd.Cmd):
         key = ""
         if not inp:
             print("** class name missing **")
-        elif inpu[0] == "BaseModel":
+        elif inpu[0] == "BaseModel" or inpu[0] == "User":
             if len(inpu) < 2:
                 print("** instance id missing **")
             else:
@@ -63,7 +63,7 @@ class HBNBCommand(cmd.Cmd):
         key = ""
         if not inp:
             print("** class name missing **")
-        elif inpu[0] == "BaseModel":
+        elif inpu[0] == "BaseModel" or inpu[0] == "User":
             if len(inpu) < 2:
                 print("** instance id missing **")
             else:
@@ -80,7 +80,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_all(self, inp):
-        if inp == "BaseModel" or inp == "":
+        if inp == "BaseModel" or inp == "" or inp == "User":
             storage.reload()
             objs = storage.all()
             list_obj = []
@@ -102,7 +102,7 @@ class HBNBCommand(cmd.Cmd):
         key = ""
         if not inp:
             print("** class name missing **")
-        elif inpu[0] == "BaseModel":
+        elif inpu[0] == "BaseModel" or inpu[0] == "User":
             if len(inpu) < 2:
                 print("** instance id missing **")
             elif len(inpu) < 3:
