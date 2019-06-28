@@ -37,9 +37,9 @@ class BaseModel():
             self('class'): object to represent
         """
         string = ""
-        string += "[<{}>] ".format(__class__.__name__)
-        string += "(<{}>) ".format(self.id)
-        string += "<{}>".format(self.__dict__)
+        string += "[{}] ".format(__class__.__name__)
+        string += "({}) ".format(self.id)
+        string += "{}".format(self.__dict__)
         return string
 
     def save(self):
