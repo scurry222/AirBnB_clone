@@ -115,7 +115,6 @@ class HBNBCommand(cmd.Cmd):
                     new_dict = {inpu[2]: inpu[3]}
                     objs[key].update(new_dict)
                     insert = json.dumps(objs)
-                    print(insert)
                     with open("file.json", "w", encoding='utf-8') as myFile:
                         myFile.write(insert)
                     storage.reload()
