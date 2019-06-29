@@ -109,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
                     objs.pop(key)
                     new_dict = {}
                     for key, value in objs.items():
-                        new_dict.update({key, value.to_dict()})
+                        new_dict.update({key: value.to_dict()})
                     insert = json.dumps(new_dict)
                     with open("file.json", "w", encoding='utf-8') as myFile:
                         myFile.write(insert)
