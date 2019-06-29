@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 """ Main program that stores information about the class """
 
+from models.base_model import BaseModel
+from models.user import User
 import json
 import os
+
 
 class FileStorage():
     """ This class stores information about the object in a json file
@@ -35,21 +38,29 @@ class FileStorage():
     def new(self, obj):
         """ Creates a dictionary from the obj dictionary """
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
-        if obj.__class__.__name__ == "User":
-            new_dict = {'email': obj.email, 'password': obj.password}
-            new = {'first_name': obj.first_name, 'last_name': obj.last_name}
-            new.update(new_dict)
-            new.update(obj.to_dict())
-        self.__objects[key] = obj.to_dict()
+        self.__objects[key] = obj
 
     def save(self):
         """ Saves the __objects dictionary on a json file """
-        insert = json.dumps(self.__objects)
+        dictionary = {}
+        for key, value in self.__objects.items():
+            dictionary.update({key: value.to_dict()})
+        insert = json.dumps(dictionary)
         with open(self.__file_path, "w", encoding="utf-8") as myFile:
             myFile.write(insert)
 
     def reload(self):
         """ Loads the dictionary from a json file and stores it in __objects"""
         if os.path.isfile(self.__file_path):
-            with open(self.__file_path, "r", encoding='utf-8') as myFile:
-                self.__objects = json.load(myFile)
+            try:
+                with open(self.__file_path, "r", encoding='utf-8') as myFile:
+                    obj_dict = {}
+                    obj_dict = json.load(myFile)
+                    for key, value in obj_dict.items():
+                        inp = key.split(".")
+                        if "BaseModel" == inp[0]:
+                            self.__objects[key] = BaseModel(**value)
+                        elif "User"  == inp[0]:
+                            self.__objects[key] = User(**value)
+            except Exception:
+                pass

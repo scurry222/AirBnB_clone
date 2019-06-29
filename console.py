@@ -5,7 +5,8 @@
 import cmd
 import os
 import json
-from models import storage
+import models
+from models.user import User
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
@@ -53,8 +54,12 @@ class HBNBCommand(cmd.Cmd):
         """
         if not inp:
             print("** class name missing **")
-        elif inp == "BaseModel" or inp == "User":
+        elif inp == "BaseModel":
             obj = BaseModel()
+            obj.save()
+            print("{}".format(obj.id))
+        elif inp == "User":
+            obj = User()
             obj.save()
             print("{}".format(obj.id))
         else:
@@ -66,8 +71,8 @@ class HBNBCommand(cmd.Cmd):
             representation of the class
         """
         inpu = inp.split()
-        storage.reload()
-        objs = storage.all()
+        models.storage.reload()
+        objs = models.storage.all()
         key = ""
         if not inp:
             print("** class name missing **")
@@ -75,11 +80,9 @@ class HBNBCommand(cmd.Cmd):
             if len(inpu) < 2:
                 print("** instance id missing **")
             else:
-                if inpu[0] == "User":
-                    inpu[0] = "BaseModel"
                 key = "{}.{}".format(inpu[0], inpu[1])
                 if key in objs:
-                    obj = BaseModel(objs[key])
+                    obj = objs[key]
                     print("{}".format(obj.__str__()))
                 else:
                     print("** no instance found **")
@@ -93,8 +96,7 @@ class HBNBCommand(cmd.Cmd):
             storage
         """
         inpu = inp.split()
-        storage.reload()
-        objs = storage.all()
+        objs = models.storage.all()
         key = ""
         if not inp:
             print("** class name missing **")
@@ -105,10 +107,13 @@ class HBNBCommand(cmd.Cmd):
                 key = "{}.{}".format(inpu[0], inpu[1])
                 if key in objs:
                     objs.pop(key)
-                    insert = json.dumps(objs)
+                    new_dict = {}
+                    for key, value in objs.items():
+                        new_dict.update({key, value.to_dict()})
+                    insert = json.dumps(new_dict)
                     with open("file.json", "w", encoding='utf-8') as myFile:
                         myFile.write(insert)
-                    storage.reload()
+                    models.storage.reload()
                 else:
                     print("** no instance found **")
         else:
@@ -119,18 +124,19 @@ class HBNBCommand(cmd.Cmd):
             of class to show. It will desmontrate all initances of the class
         """
         if inp == "BaseModel" or inp == "" or inp == "User":
-            storage.reload()
-            objs = storage.all()
+            models.storage.reload()
+            objs = models.storage.all()
             list_obj = []
             string = ""
-            for _, value in objs.items():
-                if inp == "BaseModel" or inp == "":
-                    obj = BaseModel(value)
-                elif inp == "User" or inp == "":
-                    obj = User(value)
-                list_obj.append(obj)
-                for objest in list_obj:
-                    string += obj.__str__()
+            for key, value in objs.items():
+                if inp == value.__class__.__name__ or inp == "":
+                    obj = objs[key]
+                    list_obj.append(obj)
+                elif inp == value.__class__.__name__ or inp == "":
+                    obj = objs[key]
+                    list_obj.append(obj)
+            for objects in list_obj:
+                string += objects.__str__()
             print("{}".format(string))
         else:
             print("** class doesn't exist **")
@@ -144,8 +150,8 @@ class HBNBCommand(cmd.Cmd):
             rewritten with the newly updated obj
         """
         inpu = inp.split()
-        storage.reload()
-        objs = storage.all()
+        models.storage.reload()
+        objs = models.storage.all()
         key = ""
         if not inp:
             print("** class name missing **")
@@ -159,12 +165,14 @@ class HBNBCommand(cmd.Cmd):
             else:
                 key = "{}.{}".format(inpu[0], inpu[1])
                 if key in objs:
-                    new_dict = {inpu[2]: inpu[3]}
-                    objs[key].update(new_dict)
-                    insert = json.dumps(objs)
+                    objs[key].__setattr__(inpu[2], inpu[3])
+                    new_dict = {}
+                    for key, value in objs.items():
+                        new_dict.update({key: value.to_dict()})
+                    insert = json.dumps(new_dict)
                     with open("file.json", "w", encoding='utf-8') as myFile:
                         myFile.write(insert)
-                    storage.reload()
+                    models.storage.reload()
                 else:
                     print("** no instance found **")
         else:
