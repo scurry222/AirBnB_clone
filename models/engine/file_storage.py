@@ -64,3 +64,14 @@ class FileStorage():
                             self.__objects[key] = User(**value)
             except Exception:
                 pass
+
+    @property
+    def objects(self):
+        """ Getter for objects """
+        return self.__class__.__objects
+
+    @objects.setter
+    def objects(self):
+        """ Setter for objects """
+        obj = {}
+        self.__class__.__objects = obj
