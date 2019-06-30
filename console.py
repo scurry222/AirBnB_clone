@@ -107,13 +107,7 @@ class HBNBCommand(cmd.Cmd):
                 key = "{}.{}".format(inpu[0], inpu[1])
                 if key in objs:
                     objs.pop(key)
-                    new_dict = {}
-                    for key, value in objs.items():
-                        new_dict.update({key: value.to_dict()})
-                    insert = json.dumps(new_dict)
-                    with open("file.json", "w", encoding='utf-8') as myFile:
-                        myFile.write(insert)
-                    models.storage.reload()
+                    models.storage.save()
                 else:
                     print("** no instance found **")
         else:
@@ -166,12 +160,7 @@ class HBNBCommand(cmd.Cmd):
                 key = "{}.{}".format(inpu[0], inpu[1])
                 if key in objs:
                     objs[key].__setattr__(inpu[2], inpu[3])
-                    new_dict = {}
-                    for key, value in objs.items():
-                        new_dict.update({key: value.to_dict()})
-                    insert = json.dumps(new_dict)
-                    with open("file.json", "w", encoding='utf-8') as myFile:
-                        myFile.write(insert)
+                    objs[key].save()
                     models.storage.reload()
                 else:
                     print("** no instance found **")
