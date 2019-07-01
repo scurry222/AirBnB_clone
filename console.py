@@ -2,6 +2,7 @@
 """ The command console for the airbnb clone """
 
 
+import re
 import cmd
 import os
 import json
@@ -38,6 +39,17 @@ class HBNBCommand(cmd.Cmd):
         Display a documentation of how to use class
     """
     prompt = '(hbnb) '
+
+    def precmd(self, inp):
+        s = re.search("^(\w*)\.(\w*)\((\w*)\)$", inp)
+        if not s:
+            return inp
+        model = s.group(1)
+        cmd = s.group(2)
+        args = s.group(3)
+        line = cmd + " " + model + " " + args
+        self.onecmd(line)
+        return ""
 
     def do_EOF(self, inp):
         """ Currently returns true (Can change in the future) """
