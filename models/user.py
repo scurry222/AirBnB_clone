@@ -15,11 +15,3 @@ class User(BaseModel):
         self.password = passw
         self.first_name = first
         self.last_name = last
-
-    def __str__(self):
-        """ A string representation of the class """
-        string = ""
-        string += "[{}] ".format(__class__.__name__)
-        string += "({}) ".format(self.id)
-        string += "{}".format(self.__dict__)
-        return string
