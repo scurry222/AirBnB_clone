@@ -12,8 +12,7 @@ class BaseModel:
     """ Class for the models to build on """
 
     def __init__(self, *args, **kwargs):
-        """
-        """
+        """ Initializer for BaseModel """
         setup = '%Y-%m-%dT%H:%M:%S.%f'
         if len(kwargs) > 0:
             for (k, v) in kwargs.items():
