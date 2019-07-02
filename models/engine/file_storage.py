@@ -129,11 +129,8 @@ class FileStorage():
                     obj_dict = {}
                     obj_dict = json.load(myFile)
                     for key, value in obj_dict.items():
-                        inp = key.split(".")
-                        if "BaseModel" == inp[0]:
-                            self.__objects[key] = BaseModel(**value)
-                        elif "User" == inp[0]:
-                            self.__objects[key] = User(**value)
+                        i = key.split(".")
+                        self.__objects[key] = self.references()[i[0]](**value)
             except Exception:
                 pass
 

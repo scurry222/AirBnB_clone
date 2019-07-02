@@ -45,10 +45,7 @@ class HBNBCommand(cmd.Cmd):
         Display a documentation of how to use class
     """
     prompt = '(hbnb) '
-    class_list = {"BaseModel": BaseModel(), "User": User(),
-                  "State": State(), "City": City(),
-                  "Amenity": Amenity(), "Place": Place(),
-                  "Review": Review()}
+    class_list = models.storage.references()
 
     def precmd(self, inp):
         """ """
@@ -83,7 +80,7 @@ class HBNBCommand(cmd.Cmd):
         if not inp:
             print("** class name missing **")
         elif inp in self.class_list:
-            obj = self.class_list[inp]
+            obj = self.class_list[inp]()
             obj.save()
             print("{}".format(obj.id))
         else:
@@ -106,8 +103,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 key = "{}.{}".format(inpu[0], inpu[1])
                 if key in objs:
-                    obj = objs[key]
-                    print("{}".format(obj.__str__()))
+                    print("{}".format(objs[key]))
                 else:
                     print("** no instance found **")
         else:
