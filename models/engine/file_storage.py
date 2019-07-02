@@ -37,6 +37,7 @@ class FileStorage():
     __objects = {}
 
     def references(self):
+        """ Make a reference point for tests """
         from models.user import User
         from models.amenity import Amenity
         from models.review import Review
@@ -52,6 +53,7 @@ class FileStorage():
         return class_list
 
     def attributes(self):
+        """ Make a reference point for attributes """
         attributes = {
             "BaseModel":
             {
