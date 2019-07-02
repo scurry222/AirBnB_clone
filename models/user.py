@@ -8,7 +8,7 @@ class User(BaseModel):
     """ A subclass of BaseModel that allows it to contain more information
     """
 
-    def __init__(self,email="", passw="", first="", last="", *args, **kwargs):
+    def __init__(self, email="", passw="", first="", last="", *args, **kwargs):
         """ Initializes the baseModel and its own attributes"""
         super().__init__(*args, **kwargs)
         self.email = email

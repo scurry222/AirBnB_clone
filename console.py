@@ -51,7 +51,8 @@ class HBNBCommand(cmd.Cmd):
                   "Review": Review()}
 
     def precmd(self, inp):
-        search_list =  ["^(\w*)\.(\w*)\((\w*)\)$",
+        """ """
+        search_list = ["^(\w*)\.(\w*)\((\w*)\)$",
                        "^(\w*)\.(\w*)\(\"(\S*)\"\)$"]
         for search in search_list:
             s = re.search(search, inp)
@@ -158,7 +159,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
-
     def do_update(self, inp):
         """ Takes input from inp, checks to see what intance of a class to
             update and updates the object's attributes. It does this by
@@ -191,14 +191,14 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_count(self, inp):
+        """ """
         count = 0
         objs = models.storage.all()
         for key, value in objs.items():
-           name = key.split('.')
-           if inp == name[0]:
-               count += 1
+            name = key.split('.')
+            if inp == name[0]:
+                count += 1
         print("{}".format(count))
-
 
     def help_quit(self):
         """ A function that documents the function to the user """
@@ -229,8 +229,8 @@ class HBNBCommand(cmd.Cmd):
         print("Example: create User")
 
     def help_destroy(self):
-        print("The destroy command destroyes an instance of an existing object")
-        print("with a given id")
+        print("The destroy command destroyes an instance of an ")
+        print("existing object with a given id")
         print("Example: destory BaseModel 123-123-123-123")
 
     def help_all(self):

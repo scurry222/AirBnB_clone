@@ -9,7 +9,7 @@ class Place(BaseModel):
         BaseModel('class'): include attributes
     """
 
-    def __init__(self,n="", c="", u="", d="", nr="", nb="", mg="", lt="",
+    def __init__(self, n="", c="", u="", d="", nr="", nb="", mg="", lt="",
                  lg="", ai=[""], *args, **kwargs):
         """ Initalize City as an obj
         Args:

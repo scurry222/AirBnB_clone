@@ -65,7 +65,7 @@ class FileStorage():
                         inp = key.split(".")
                         if "BaseModel" == inp[0]:
                             self.__objects[key] = BaseModel(**value)
-                        elif "User"  == inp[0]:
+                        elif "User" == inp[0]:
                             self.__objects[key] = User(**value)
             except Exception:
                 pass
