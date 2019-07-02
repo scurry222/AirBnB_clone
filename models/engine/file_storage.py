@@ -7,10 +7,10 @@ from models.amenity import Amenity
 from models.review import Review
 from models.state import State
 from models.place import Place
-
 import json
 import os
 import datetime
+
 
 class FileStorage():
     """ This class stores information about the object in a json file
@@ -37,6 +37,7 @@ class FileStorage():
     __objects = {}
 
     def references(self):
+        """ Make a reference point for tests """
         from models.user import User
         from models.amenity import Amenity
         from models.review import Review
@@ -46,13 +47,13 @@ class FileStorage():
         from models.city import City
 
         class_list = {"BaseModel": BaseModel, "User": User,
-                  "State": State, "City": City,
-                  "Amenity": Amenity, "Place": Place,
-                  "Review": Review}
+                      "State": State, "City": City,
+                      "Amenity": Amenity, "Place": Place,
+                      "Review": Review}
         return class_list
 
-
     def attributes(self):
+        """ Make a reference point for attributes """
         attributes = {
             "BaseModel":
             {
@@ -94,7 +95,7 @@ class FileStorage():
                 "longitude": float,
                 "amenity_ids": list
             },
-            "Review" : {
+            "Review": {
                 "place_id": str,
                 "user_id": str,
                 "text": str
