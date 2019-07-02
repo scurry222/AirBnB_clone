@@ -32,7 +32,7 @@ class TestBaseModel(unittest.TestCase):
         b = BaseModel()
         self.assertEqual(str(type(b)),
                          "<class 'models.base_model.BaseModel'>")
-        self. assertIsInstance(b, BaseModel)
+        self.assertIsInstance(b, BaseModel)
         self.assertTrue(issubclass(type(b), BaseModel))
 
     def test_instance_kwargs(self):
