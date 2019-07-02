@@ -142,6 +142,11 @@ class TestBaseModel(unittest.TestCase):
         d = b.to_dict()
         self.assertEqual(d["id"], b.id)
 
+    def test_uniq_id(self):
+        """ Testing uniquesness of id """
+        list_comp = [BaseModel().id for i in range(1000)]
+        self.assertEqual(len(list_comp), len(set(list_comp)))
+
     def test_to_dict_created_at(self):
         """ Test if created_at is implemented into BaseModel """
         b = BaseModel()
