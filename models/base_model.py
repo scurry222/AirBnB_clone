@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 base_model - 1 class
 """

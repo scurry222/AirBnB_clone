@@ -7,6 +7,7 @@ import json
 import time
 import unittest
 import uuid
+import datetime
 from models import storage
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
@@ -70,7 +71,11 @@ class TestBaseModel(unittest.TestCase):
 
     def test_attributes(self):
         """ Test if attributes are equal to default type """
-        pass
+        attrs = storage.attributes()["BaseModel"]
+        b = BaseModel()
+        for k, v in attrs.items():
+            self.assertTrue(hasattr(b, k))
+            self.assertEqual(type(getattr(b, k, None)), v)
 
     def test_none(self):
         """ Test that basemodel is not none """
