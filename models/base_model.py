@@ -5,11 +5,11 @@ base_model - 1 class
 """
 
 import uuid
-import datetime
+import datetime import datetime
 import models
 
 
-class BaseModel():
+class BaseModel:
     """ Class for the models to build on """
 
     def __init__(self, *args, **kwargs):
@@ -19,13 +19,13 @@ class BaseModel():
         if len(kwargs) > 0:
             for (k, v) in kwargs.items():
                 if k in ('created_at', 'updated_at'):
-                    self.__dict__[k] = datetime.datetime.strptime(v, setup)
+                    self.__dict__[k] = datetime.strptime(v, setup)
                 else:
                     self.__dict__[k] = v
         else:
             self.id = str(uuid.uuid4())
-            self.created_at = datetime.datetime.now()
-            self.updated_at = datetime.datetime.now()
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
             models.storage.new(self)
 
     def __str__(self):
@@ -43,7 +43,7 @@ class BaseModel():
 
     def save(self):
         """ Update the time """
-        self.updated_at = datetime.datetime.now()
+        self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
