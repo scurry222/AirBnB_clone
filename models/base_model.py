@@ -1,18 +1,17 @@
 #!/usr/bin/python3
 
-import uuid
-from datetime import datetime
-import models
-
 """
 base_model - 1 class
 """
 
+import uuid
+from datetime import datetime
+import models
+
 
 class BaseModel():
-    """
-    Class for the models to build on
-    """
+    """ Class for the models to build on """
+
     def __init__(self, *args, **kwargs):
         """
         """
