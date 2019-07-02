@@ -8,8 +8,14 @@ import os
 import json
 import models
 from models.user import User
+from models.amenity import Amenity
+from models.review import Review
+from models.state import State
+from models.place import Place
 from models.base_model import BaseModel
+from models.city import City
 from models.engine.file_storage import FileStorage
+
 
 class HBNBCommand(cmd.Cmd):
     """ HBNBCommand inherits from Cmd and overrides
@@ -39,9 +45,18 @@ class HBNBCommand(cmd.Cmd):
         Display a documentation of how to use class
     """
     prompt = '(hbnb) '
+    class_list = {"BaseModel": BaseModel(), "User": User(),
+                  "State": State(), "City": City(),
+                  "Amenity": Amenity(), "Place": Place(),
+                  "Review": Review()}
 
     def precmd(self, inp):
-        s = re.search("^(\w*)\.(\w*)\((\w*)\)$", inp)
+        search_list =  ["^(\w*)\.(\w*)\((\w*)\)$",
+                       "^(\w*)\.(\w*)\(\"(\S*)\"\)$"]
+        for search in search_list:
+            s = re.search(search, inp)
+            if s:
+                break
         if not s:
             return inp
         model = s.group(1)
@@ -66,12 +81,8 @@ class HBNBCommand(cmd.Cmd):
         """
         if not inp:
             print("** class name missing **")
-        elif inp == "BaseModel":
-            obj = BaseModel()
-            obj.save()
-            print("{}".format(obj.id))
-        elif inp == "User":
-            obj = User()
+        elif inp in self.class_list:
+            obj = self.class_list[inp]
             obj.save()
             print("{}".format(obj.id))
         else:
@@ -88,7 +99,7 @@ class HBNBCommand(cmd.Cmd):
         key = ""
         if not inp:
             print("** class name missing **")
-        elif inpu[0] == "BaseModel" or inpu[0] == "User":
+        elif inpu[0] in self.class_list:
             if len(inpu) < 2:
                 print("** instance id missing **")
             else:
@@ -112,7 +123,7 @@ class HBNBCommand(cmd.Cmd):
         key = ""
         if not inp:
             print("** class name missing **")
-        elif inpu[0] == "BaseModel" or inpu[0] == "User":
+        elif inpu[0] in self.class_list:
             if len(inpu) < 2:
                 print("** instance id missing **")
             else:
@@ -129,7 +140,7 @@ class HBNBCommand(cmd.Cmd):
         """ Takes input from inp and checks for what type
             of class to show. It will desmontrate all initances of the class
         """
-        if inp == "BaseModel" or inp == "" or inp == "User":
+        if inp in self.class_list or inp == "":
             models.storage.reload()
             objs = models.storage.all()
             list_obj = []
@@ -161,7 +172,7 @@ class HBNBCommand(cmd.Cmd):
         key = ""
         if not inp:
             print("** class name missing **")
-        elif inpu[0] == "BaseModel" or inpu[0] == "User":
+        elif inpu[0] in self.class_list:
             if len(inpu) < 2:
                 print("** instance id missing **")
             elif len(inpu) < 3:
@@ -178,6 +189,16 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
         else:
             print("** class doesn't exist **")
+
+    def do_count(self, inp):
+        count = 0
+        objs = models.storage.all()
+        for key, value in objs.items():
+           name = key.split('.')
+           if inp == name[0]:
+               count += 1
+        print("{}".format(count))
+
 
     def help_quit(self):
         """ A function that documents the function to the user """
