@@ -9,6 +9,6 @@ class Review(BaseModel):
         BaseModel('class'): include attributes
     """
 
-    place_id = place_id_
-    user_id = user_id_
-    text = text
+    place_id = ""
+    user_id = ""
+    text = ""

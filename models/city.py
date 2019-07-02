@@ -9,5 +9,5 @@ class City(BaseModel):
         BaseModel('class'): include attributes
     """
 
-    state_id = state_id_
-    name = name_
+    state_id = ""
+    name = ""
