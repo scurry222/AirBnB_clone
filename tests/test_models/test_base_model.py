@@ -171,5 +171,11 @@ class TestBaseModel(unittest.TestCase):
         with self.assertRaises(TypeError):
             BaseModel.save(4, 42)
 
+    def test_string_model(self):
+        """ testing that model string matched output """
+        george = BaseModel()
+        string = "[BaseModel] ({}) {}".format(george.id, george.__dict__)
+        self.assertEqual(george.__str__(), string)
+
 if __name__ == '__main__':
     unittest.main()
