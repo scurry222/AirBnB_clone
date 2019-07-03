@@ -249,8 +249,6 @@ class TestFileStorage(unittest.TestCase):
     def test_reload_review(self):
         """ Tests reload method on Review """
         self.reload_helper("Review")
-    
-        
 
 
 if __name__ == '__main__':
