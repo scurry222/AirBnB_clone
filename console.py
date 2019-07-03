@@ -49,8 +49,10 @@ class HBNBCommand(cmd.Cmd):
 
     def precmd(self, inp):
         """ """
+        args = "\(\"(\S*)\"\,\ \"(\S*)\"\,\ (\S*)\)$"
+        fm = "^(\w*)\.(\w*)" + args
         search_list = ["^(\w*)\.(\w*)\((\w*)\)$",
-                       "^(\w*)\.(\w*)\(\"(\S*)\"\)$"]
+                       "^(\w*)\.(\w*)\(\"(\S*)\"\)$", fm]
         for search in search_list:
             s = re.search(search, inp)
             if s:
@@ -61,6 +63,13 @@ class HBNBCommand(cmd.Cmd):
         cmd = s.group(2)
         args = s.group(3)
         line = cmd + " " + model + " " + args
+        if len(s.groups()) > 3:
+            if s.group(4):
+                line += " " + s.group(4)
+        if len(s.groups()) > 4:
+            if s.group(5):
+                line += " " + s.group(5)
+
         self.onecmd(line)
         return ""
 
@@ -178,6 +187,8 @@ class HBNBCommand(cmd.Cmd):
             else:
                 key = "{}.{}".format(inpu[0], inpu[1])
                 if key in objs:
+                    if type(inpu[3]) is dict:
+                        objs[key].__setattr__(inpu[2], **inpu[3])
                     objs[key].__setattr__(inpu[2], inpu[3])
                     objs[key].save()
                     models.storage.reload()
