@@ -32,7 +32,7 @@ class TestUser(unittest.TestCase):
         """ Check type of instance created """
         b = User()
         self.assertEqual(str(type(b)),
-                         "<class 'models.base_model.User'>")
+                         "<class 'models.user.User'>")
         self. assertIsInstance(b, User)
         self.assertTrue(issubclass(type(b), User))
 

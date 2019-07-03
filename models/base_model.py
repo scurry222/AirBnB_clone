@@ -15,11 +15,15 @@ class BaseModel:
         """ Initializer for BaseModel """
         setup = '%Y-%m-%dT%H:%M:%S.%f'
         if len(kwargs) > 0:
-            for (k, v) in kwargs.items():
-                if k in ('created_at', 'updated_at'):
-                    self.__dict__[k] = datetime.strptime(v, setup)
+            for k in kwargs:
+                if k == "created_at":
+                    self.__dict__["created_at"] = datetime.strptime(
+                                                  kwargs["created_at"], setup)
+                elif k == "updated_at":
+                    self.__dict__["updated_at"] = datetime.strptime(
+                                                  kwargs["updated_at"], setup)
                 else:
-                    self.__dict__[k] = v
+                    self.__dict__[k] = kwargs[k]
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
