@@ -5,8 +5,12 @@ from models.base_model import BaseModel
 
 class Amenity(BaseModel):
     """ Amenity class that inherits attributes from base model
-    Args:
-        BaseModel('class'): include attributes
+
+        attributes
+        ----------
+        state_id: str
+        name: str
+        all attributes from BaseModel are inherited
     """
 
     state_id = ""

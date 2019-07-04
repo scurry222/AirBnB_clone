@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-base_model - 1 class
+base_model - the base model for any class that inherits its attributes
 """
 
 import uuid
@@ -9,7 +9,16 @@ import models
 
 
 class BaseModel:
-    """ Class for the models to build on """
+    """ Class for the models to build on
+
+        Attributes:
+        id: str
+           A unique id for any initiated BaseModel object
+        created_at: datetime
+           The time when the class was initiated
+        update_at: datetime
+           The time when the class was updated
+    """
 
     def __init__(self, *args, **kwargs):
         """ Initializer for BaseModel """

@@ -5,8 +5,13 @@ from models.base_model import BaseModel
 
 class City(BaseModel):
     """ City class that inherits attributes from base model
-    Args:
-        BaseModel('class'): include attributes
+        Attributes
+        ----------
+        state_id: str
+          the state where the city is located
+        name: str
+          the name of the city
+        all attributes from BaseModel are inherited
     """
 
     state_id = ""

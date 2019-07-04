@@ -5,8 +5,16 @@ from models.base_model import BaseModel
 
 class Review(BaseModel):
     """ Review class that inherits attributes from base model
-    Args:
-        BaseModel('class'): include attributes
+
+        Attributes
+       -----------
+       place_id: str
+          The identification of the place
+       user_id: str
+          The identification of the user
+       text: str
+          The text
+       all attributes from BaseModel are inherited
     """
 
     place_id = ""
