@@ -48,8 +48,7 @@ EOF  help  quit
 $
 ```
 
-## Usage
-
+### Allowed Commands
 
 - ```./console.py``` - Runs the console
 
@@ -69,7 +68,6 @@ $
 
 ## Models
 
-
 - `base_model.py`: Base model for all other classes. Attributes: `id, created_at, updated_at`
 
 - `user.py`: Class for future users. Attributes: `email, password, first_name, last_name`
@@ -86,7 +84,7 @@ $
 
 ## Tests
 
-Tests for all code is in the test_models folder
+Tests for all code is in the test_models folder.
 
 ## Authors
 
