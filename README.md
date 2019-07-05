@@ -32,37 +32,36 @@ EOF  all  count  create  destroy  help  quit  show  update
 
 ### Allowed Commands
 
- ```./console.py``` | Runs the console
+ ./console.py            | Runs the console
+ quit                    | Quits the console
+ help <command>          | Display help for command
+ create <class>          | create an object and print its id
+ all` or all <class>     | shows all objects in stack
+ show <class> <id> or
+   <class>.show(<id>)    | show a specified object
 
- `quit` | Quits the console
+ destroy <class> <id> or
+ <class>.destroy(<id>)   | remove an object
 
- `help <command>` | Display help for command
-
- `create <class>` | create an object and print its id
-
- `all` or `all <class>` | shows all objects in stack
-
- `show <class> <id>` or `<class>.show(<id>)` | show a specified object
-
- `destroy <class> <id>` or `<class>.destroy(<id>)` | remove an object
-
- `update <class> <id> <attribute name> "<attribute value>"` | update an attribute of an object
+ update <class> <id>
+ <attribute name>
+ "<attribute value>"     | update an attribute of an object
 
 ## Models
+| Tables        | Are                               | Cool                                  |
+| ------------- |:---------------------------------:| -------------------------------------:|
+| base_model.py | Base model for all other classes. | id, created_at, updated_at            |
+| user.py       | Class for future users.           | email, password, first_name, last_name|
+| state.py      | Class for State info.             | state_id, name                        |
+| city.py       | Class for City info.              | name                                  |
+| place.py      | Class for Place info.             | city_id, user_id, name, description,  |
+|               |                                   |  number_rooms, number_bathrooms,      |
+|               |                                   |  max_guest, price_by_night, latitude, |
+|               |                                   |  longitude, amenity_ids`              |
 
- `base_model.py`: Base model for all other classes. | `id, created_at, updated_at`
+ `amenity.py`: Class for Amenity info. | `name`
 
- `user.py`: Class for future users. | `email, password, first_name, last_name`
-
- `state.py`: Class for State info. | `state_id, name`
-
- `city.py`: Class for City info. | `name`
-
- `place.py`: Class for Place info. | `city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids`
-
- `amenity.py`: Class for Amenity info. Attributes: `name`
-
- `review.py`: Class for Review info. Attributes: `place_id, user_id, text`
+ `review.py`: Class for Review info. | `place_id, user_id, text`
 
 ## File Storage
 
