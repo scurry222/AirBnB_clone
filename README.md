@@ -32,7 +32,7 @@ EOF  all  count  create  destroy  help  quit  show  update
 
 ### Allowed Commands
 
-|                       Command                            |             Description                 |
+| Command                                                  | Description                             |
 |:-------------------------------------------------------- |:--------------------------------------- |
 | ./console.py                                             | Runs the console                        |
 | quit                                                     | Quits the console                       |
