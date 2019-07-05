@@ -32,15 +32,14 @@ EOF  all  count  create  destroy  help  quit  show  update
 
 ### Allowed Commands
 
- | Command                 | Description                        |
- |:----------------------- |:---------------------------------- |
- | ./console.py            | Runs the console                   |
- | quit                    | Quits the console                  |
- | help <command>          | Display help for command           |
- | create <class>          | create an object and print its id  |
- | all` or all <class>     | shows all objects in stack         |
- | show <class> <id> or
-    <class>.show(<id>)     | show a specified object            |
+ |               Command               |               Description               |
+ |:----------------------------------- |:--------------------------------------- |
+ | ./console.py                        | Runs the console                   |
+ | quit                                | Quits the console                  |
+ | help <command>                      | Display help for command           |
+ | create <class>                      | create an object and print its id  |
+ | all` or all <class>                 | shows all objects in stack         |
+ | show <class> <id> or<class>.show(<id>) | show a specified object            |
 |
 | destroy <class> <id> or
     <class>.destroy(<id>) | remove an object |                 |
