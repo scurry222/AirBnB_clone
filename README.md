@@ -31,7 +31,6 @@ EOF  all  count  create  destroy  help  quit  show  update
 ```
 
 ### Allowed Commands
-
 | Command                                                  | Description                             |
 |:-------------------------------------------------------- |:--------------------------------------- |
 | ./console.py                                             | Runs the console                        |
@@ -52,7 +51,7 @@ EOF  all  count  create  destroy  help  quit  show  update
 | city.py       | Class for City info.              | name                                  |
 | place.py      | Class for Place info.             | city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_id |
 | amenity.py    | Class for Amenity info.           | name                                  |
-| review.py     | Class for Review info.            | `place_id, user_id, text`             |
+| review.py     | Class for Review info.            | place_id, user_id, text               |
 
 ## File Storage
 
