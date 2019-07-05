@@ -40,7 +40,7 @@ EOF  all  count  create  destroy  help  quit  show  update
 | create <class>                      | create an object and print its id       |
 | all` or all <class>                 | shows all objects in stack              |
 | show <class> <id> or 
-    <class>.show(<id>) | show a specified object              |
+    <class>.show(<id>)                | show a specified object                 |
 | destroy <class> <id> or
     <class>.destroy(<id>)             | remove an object                        |
 | update <class> <id> 
