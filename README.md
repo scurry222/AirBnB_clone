@@ -1,8 +1,14 @@
 # AirBnb Clone version 0 - Console and Engine
-A command line interpreter to manage future AirBnB projects.
 ______________________________________________________________________________
+A command line interpreter to manage future AirBnB projects.
 
-![](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUXW7JF5MT%2F20190705%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190705T034345Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=0b86af63f24ff8d54946729c88d9012383d832b8f85e307a74115a6312624ec3)
+(0b86af63f24ff8d54946729c88d9012383d832b8f85e307a74115a6312624ec3)
+
+## File Storage
+______________________________________________________________________________________
+
+The engine folder is to handle serialization and deserialization of the data by using the JSON format. The control flow looks like this:
+`<class 'BaseModel'> -> to_dict() -> <class 'dict'> -> JSON dump -> <class 'str'> -> FILE -> <class 'str'> -> JSON load -> <class 'dict'> -> <class 'BaseModel'>`
 
 ## Usage
 ______________________________________________________________________________
@@ -20,7 +26,7 @@ EOF  help  quit
 (hbnb) quit
 $
 ```
-But also in non-interactive mode: (like the Shell project in C):
+But also in non-interactive mode:
 ```
 $ echo "help" | ./console.py
 (hbnb)
@@ -43,31 +49,41 @@ EOF  help  quit
 $
 ```
 
-## Monty Bytecode Commands
+## Usage
+_____________________________________________________________________________
 
-- ```push <int>``` - pushes an integer onto the top of the stack
+- ```./console.py``` - Runs the console
 
-- `pop` - removes the top element of the stack
+- `(hbnb) quit` - Quits the console
 
-- `swap` - swaps the top two elements of the stack
+- `(hbnb) help <command>` - Display help for command
 
-- `nop` - does nothing
+- `(hbnb) create <class>` - Create an object, prints its id
 
-- `pall` - prints all values on the stack
+- `(hbnb) all` or `(hbnb) all <class>` - shows all objects in file
 
-- `pint` - prints the value at the top of the stack
+- `(hbnb) show <class> <id>` or `(hbnb) <class>.show(<id>)` - show an object
 
-- `add` - adds the top two elements of the stack
+- `(hbnb) destroy <class> <id>` or `(hbnb) <class>.destroy(<id>)` - remove an object
 
-- `sub` - subtracts the top element of the stack from the second element of the stack
+- `(hbnb) update <class> <id> <attribute name> "<attribute value>"` - update an attribute of an object
 
-- `mul` - multiplies the top two elements of the stack
+## Models
+___________________________________________________________________________________________
 
-- `div` - divides the second element of the stack by the top element of the stack
+- `base_model.py`: Base model for all other classes. Attributes: `id, created_at, updated_at`
 
-- `mod` - returns the remainder of dividing the second element of the stack by the top element of the stack
+- `user.py`: Class for future users. Attributes: `email, password, first_name, last_name`
 
-_________________________________________________________________________________________________________
+- `state.py`: Class for State info. Attributes: `state_id, name`
+
+- `city.py`: Class for City info. Attributes: `name`
+
+- `place.py`: Class for Place info. Attributes: `city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids`
+
+- `amenity.py`: Class for Amenity info. Attributes: `name`
+
+- `review.py`: Class for Review info. Attributes: `place_id, user_id, text`
 
 ## Project Requirements
 
@@ -131,4 +147,4 @@ ________________________________________________________________________________
 
 [Scout Curry](https://github.com/scurry222)
 
-[Drew Maring](https://github.com/dmaring)
+[George Solorio](https://github.com/GeorgeSolorio)
