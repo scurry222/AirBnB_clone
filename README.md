@@ -4,41 +4,30 @@ A command line interpreter to manage future AirBnB projects.
 
 ## Usage
 
-The shell works like this in interactive mode:
+Example in interactive mode:
 ```
 $ ./console.py
 (hbnb) help
 
 Documented commands (type help <topic>):
 ========================================
-EOF  help  quit
+EOF  all  count  create  destroy  help  quit  show  update
 
 (hbnb) 
 (hbnb) 
 (hbnb) quit
 $
 ```
-But also in non-interactive mode:
+non-interactive mode:
 ```
 $ echo "help" | ./console.py
 (hbnb)
-
 Documented commands (type help <topic>):
 ========================================
-EOF  help  quit
-(hbnb) 
-$
-$ cat test_help
-help
-$
-$ cat test_help | ./console.py
-(hbnb)
+EOF  all  count  create  destroy  help  quit  show  update
 
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-(hbnb) 
-$
+(hbnb) $
+
 ```
 
 ### Allowed Commands
