@@ -49,7 +49,7 @@ EOF  all  count  create  destroy  help  quit  show  update
 
 ## Models
 | Tables        | Are                               | Cool                                  |
-| ------------- |:---------------------------------:| -------------------------------------:|
+| ------------- |:---------------------------------:|:------------------------------------- |
 | base_model.py | Base model for all other classes. | id, created_at, updated_at            |
 | user.py       | Class for future users.           | email, password, first_name, last_name|
 | state.py      | Class for State info.             | state_id, name                        |
