@@ -1,4 +1,4 @@
-# AirBnb Clone version 0 - Console and Engine
+# 0x00. AirBnB clone - The console
 
 A command line interpreter to manage future AirBnB projects.
 
@@ -32,37 +32,37 @@ EOF  all  count  create  destroy  help  quit  show  update
 
 ### Allowed Commands
 
-- ```./console.py``` - Runs the console
+ ```./console.py``` | Runs the console
 
-- `(hbnb) quit` - Quits the console
+ `quit` | Quits the console
 
-- `(hbnb) help <command>` - Display help for command
+ `help <command>` | Display help for command
 
-- `(hbnb) create <class>` - Create an object and print its id
+ `create <class>` | create an object and print its id
 
-- `(hbnb) all` or `(hbnb) all <class>` - shows all objects in file
+ `all` or `all <class>` | shows all objects in stack
 
-- `(hbnb) show <class> <id>` or `(hbnb) <class>.show(<id>)` - show an object
+ `show <class> <id>` or `<class>.show(<id>)` | show a specified object
 
-- `(hbnb) destroy <class> <id>` or `(hbnb) <class>.destroy(<id>)` - remove an object
+ `destroy <class> <id>` or `<class>.destroy(<id>)` | remove an object
 
-- `(hbnb) update <class> <id> <attribute name> "<attribute value>"` - update an attribute of an object
+ `update <class> <id> <attribute name> "<attribute value>"` | update an attribute of an object
 
 ## Models
 
-- `base_model.py`: Base model for all other classes. Attributes: `id, created_at, updated_at`
+ `base_model.py`: Base model for all other classes. | `id, created_at, updated_at`
 
-- `user.py`: Class for future users. Attributes: `email, password, first_name, last_name`
+ `user.py`: Class for future users. | `email, password, first_name, last_name`
 
-- `state.py`: Class for State info. Attributes: `state_id, name`
+ `state.py`: Class for State info. | `state_id, name`
 
-- `city.py`: Class for City info. Attributes: `name`
+ `city.py`: Class for City info. | `name`
 
-- `place.py`: Class for Place info. Attributes: `city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids`
+ `place.py`: Class for Place info. | `city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids`
 
-- `amenity.py`: Class for Amenity info. Attributes: `name`
+ `amenity.py`: Class for Amenity info. Attributes: `name`
 
-- `review.py`: Class for Review info. Attributes: `place_id, user_id, text`
+ `review.py`: Class for Review info. Attributes: `place_id, user_id, text`
 
 ## File Storage
 
