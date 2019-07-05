@@ -69,6 +69,7 @@ The engine folder is to handle serialization and deserialization of the data by 
 ## Tests
 
 Tests for all code is in the [test_models](https://github.com/scurry222/AirBnB_clone/tree/master/tests/test_models) folder.
+To run unittests for this program, cd into root directory and run the following command: `python3 -m unittest discover tests`
 
 ## Authors
 
