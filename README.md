@@ -2,13 +2,6 @@
 
 A command line interpreter to manage future AirBnB projects.
 
-
-## File Storage
-
-The engine folder is to handle serialization and deserialization of the data by using the JSON format. The control flow looks like this:
-
-`<class 'BaseModel'> -> to_dict() -> <class 'dict'> -> JSON dump -> <class 'str'> -> FILE -> <class 'str'> -> JSON load -> <class 'dict'> -> <class 'BaseModel'>`
-
 ## Usage
 
 The shell works like this in interactive mode:
@@ -81,6 +74,12 @@ $
 - `amenity.py`: Class for Amenity info. Attributes: `name`
 
 - `review.py`: Class for Review info. Attributes: `place_id, user_id, text`
+
+## File Storage
+
+The engine folder is to handle serialization and deserialization of the data by using the JSON format. The control flow looks like this:
+
+`<class 'BaseModel'> -> to_dict() -> <class 'dict'> -> JSON dump -> <class 'str'> -> FILE -> <class 'str'> -> JSON load -> <class 'dict'> -> <class 'BaseModel'>`
 
 ## Tests
 
