@@ -1,6 +1,13 @@
 # 0x00. AirBnB clone - The console
 
+## About
 A command line interpreter to manage future AirBnB projects.
+
+ - put in place a parent class (called BaseModel) to take care of the initialization, serialization and deserialization of your future  instances
+ - A simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string <-> file
+ - classes used for AirBnB (User, State, City, Place…) that inherit from BaseModel
+ - first abstracted storage engine of the project: File storage.
+ - unittests to validate all our classes and storage engine
 
 ## Usage
 
@@ -37,7 +44,7 @@ EOF  all  count  create  destroy  help  quit  show  update
 | `quit`                                                       | Quits the console                       |
 | `help <command>`                                             | Display help for command                |
 | `create <class>`                                             | create an object and print its id       |
-| `all` or all <class>`                                        | shows all objects in stack              |
+| `all` or `all <class>`                                        | shows all objects in stack              |
 | `show <class> <id>` or `<class>.show(<id>)`                  | show a specified object                 |
 | `destroy <class> <id>` or `<class>.destroy(<id>)`            | remove an object                        |
 | `update <class> <id> <attribute name> "<attribute value>"`   | update an attribute of an object        |
