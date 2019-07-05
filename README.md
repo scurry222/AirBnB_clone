@@ -39,13 +39,9 @@ EOF  all  count  create  destroy  help  quit  show  update
 | help <command>                      | Display help for command                |
 | create <class>                      | create an object and print its id       |
 | all` or all <class>                 | shows all objects in stack              |
-| show <class> <id> or 
-    <class>.show(<id>)                | show a specified object                 |
-| destroy <class> <id> or
-    <class>.destroy(<id>)             | remove an object                        |
-| update <class> <id> 
-     <attribute name>
-      "<attribute value>"             | update an attribute of an object        |
+| show <class> <id> or <class>.show(<id>) | show a specified object                 |
+| destroy <class> <id> or <class>.destroy(<id>) | remove an object              |
+| update <class> <id> <attribute name> "<attribute value>" | update an attribute of an object        |
       
 ## Models
 | File          | Description                       | Attributes                            |
