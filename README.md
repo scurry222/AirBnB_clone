@@ -38,6 +38,7 @@ EOF  all  count  create  destroy  help  quit  show  update
 ```
 
 ### Allowed Commands
+All commands can be located in the [console.py](https://github.com/scurry222/AirBnB_clone/blob/master/console.py) file.
 | Command                                                      | Description                             |
 |:------------------------------------------------------------ |:--------------------------------------- |
 | `./console.py`                                               | Runs the console                        |
@@ -50,9 +51,10 @@ EOF  all  count  create  destroy  help  quit  show  update
 | `update <class> <id> <attribute name> "<attribute value>"`   | update an attribute of an object        |
       
 ## Models
+All model classes are located in the [models](https://github.com/scurry222/AirBnB_clone/tree/master/models) folder.
 | File          | Description                       | Attributes                            |
 | ------------- |:--------------------------------- |:------------------------------------- |
-| base_model.py | Base model for all other classes. | id, created_at, updated_at            |
+| [base_model.py] (https://github.com/scurry222/AirBnB_clone/blob/master/models/base_model.py) | Base model for all other classes. | id, created_at, updated_at            |
 | user.py       | Class for future users.           | email, password, first_name, last_name|
 | state.py      | Class for State info.             | state_id, name                        |
 | city.py       | Class for City info.              | name                                  |
