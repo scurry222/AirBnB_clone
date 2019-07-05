@@ -53,6 +53,7 @@ All commands can be located in the [console.py](https://github.com/scurry222/Air
       
 ## Models
 All model classes are located in the [models](https://github.com/scurry222/AirBnB_clone/tree/master/models) folder.
+
 | File          | Description                       | Attributes                            |
 | ------------- |:--------------------------------- |:------------------------------------- |
 | base_model.py | Base model for all other classes. | id, created_at, updated_at            |
