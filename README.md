@@ -2,7 +2,7 @@
 A command line interpreter to manage future AirBnB projects.
 ______________________________________________________________________________
 
-https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUXW7JF5MT%2F20190705%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190705T034345Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=0b86af63f24ff8d54946729c88d9012383d832b8f85e307a74115a6312624ec3
+![](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUXW7JF5MT%2F20190705%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190705T034345Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=0b86af63f24ff8d54946729c88d9012383d832b8f85e307a74115a6312624ec3)
 
 ## Usage
 ______________________________________________________________________________
