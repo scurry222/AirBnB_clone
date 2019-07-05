@@ -38,7 +38,7 @@ EOF  all  count  create  destroy  help  quit  show  update
 
 - `(hbnb) help <command>` - Display help for command
 
-- `(hbnb) create <class>` - Create an object, prints its id
+- `(hbnb) create <class>` - Create an object and print its id
 
 - `(hbnb) all` or `(hbnb) all <class>` - shows all objects in file
 
