@@ -1,16 +1,15 @@
 # AirBnb Clone version 0 - Console and Engine
-______________________________________________________________________________
+
 A command line interpreter to manage future AirBnB projects.
 
 
 ## File Storage
-______________________________________________________________________________________
 
 The engine folder is to handle serialization and deserialization of the data by using the JSON format. The control flow looks like this:
 `<class 'BaseModel'> -> to_dict() -> <class 'dict'> -> JSON dump -> <class 'str'> -> FILE -> <class 'str'> -> JSON load -> <class 'dict'> -> <class 'BaseModel'>`
 
 ## Usage
-______________________________________________________________________________
+
 The shell works like this in interactive mode:
 ```
 $ ./console.py
@@ -49,7 +48,7 @@ $
 ```
 
 ## Usage
-_____________________________________________________________________________
+
 
 - ```./console.py``` - Runs the console
 
@@ -68,7 +67,7 @@ _____________________________________________________________________________
 - `(hbnb) update <class> <id> <attribute name> "<attribute value>"` - update an attribute of an object
 
 ## Models
-___________________________________________________________________________________________
+
 
 - `base_model.py`: Base model for all other classes. Attributes: `id, created_at, updated_at`
 
