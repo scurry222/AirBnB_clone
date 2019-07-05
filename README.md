@@ -54,10 +54,7 @@ EOF  all  count  create  destroy  help  quit  show  update
 | user.py       | Class for future users.           | email, password, first_name, last_name|
 | state.py      | Class for State info.             | state_id, name                        |
 | city.py       | Class for City info.              | name                                  |
-| place.py      | Class for Place info.             | city_id, user_id, name, description,  |
-|               |                                   |  number_rooms, number_bathrooms,      |
-|               |                                   |  max_guest, price_by_night, latitude, |
-|               |                                   |  longitude, amenity_ids`              |
+| place.py      | Class for Place info.             | city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids
 
  `amenity.py`: Class for Amenity info. | `name`
 
