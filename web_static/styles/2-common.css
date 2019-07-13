@@ -1,0 +1,14 @@
+div.page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+main {
+    flex: 1
+}
+
+body {
+    padding: 0%;
+    margin: 0%;
+}
