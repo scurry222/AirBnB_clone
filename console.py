@@ -21,11 +21,17 @@ class HBNBCommand(cmd.Cmd):
     """ HBNBCommand inherits from Cmd and overrides
         methods to it's own customized version
 
+        attributes
+        ----------
+        promp: str
+           A variable that uses a string to display a promp on the screen
+        class_list: dict
+           A dictionary that takes class objects from file storage
         do_methods
         ----------
         Methods that define what actions a command will do
         do_EOF:
-            Currently exits 'Can edit later'
+            Exits the console loop
         do_quit:
             Exits the console loop
         do_create:
@@ -39,16 +45,19 @@ class HBNBCommand(cmd.Cmd):
             Shows a dictionary of every initated class object
         do_update:
             updates an attribute of a given class object
-
+        do_count:
+            counts the instances that have already been intiated and stored
         help_methods
         ------------
-        Display a documentation of how to use class
+        Display a documentation of how to use a class or method
     """
     prompt = '(hbnb) '
     class_list = models.storage.references()
 
     def precmd(self, inp):
-        """ """
+        """ A function that checks for specified input format
+            and groups the input to create a proper command line
+        """
         args = "\(\"(\S*)\"\,\ \"(\S*)\"\,\ (\S*)\)$"
         fm = "^(\w*)\.(\w*)" + args
         search_list = ["^(\w*)\.(\w*)\((\w*)\)$",
@@ -198,7 +207,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_count(self, inp):
-        """ """
+        """ Returns the number of initiated instances of a class """
         count = 0
         objs = models.storage.all()
         for key, value in objs.items():
@@ -226,21 +235,25 @@ class HBNBCommand(cmd.Cmd):
         print("Creates a new instance of a class")
 
     def help_update(self):
+        """ Documentation for update """
         print("update command that updates any attributes")
         print("from an existing object in the json file")
         print("Example: update BaseModel 123-123-123-123 first_name \"name\" ")
 
     def help_create(self):
+        """ Documentation for create """
         print("command create initiates an intance of a specified class")
         print("After a successfull creation, it will print the class id")
         print("Example: create User")
 
     def help_destroy(self):
+        """ Documentation for destroy """
         print("The destroy command destroyes an instance of an ")
         print("existing object with a given id")
         print("Example: destory BaseModel 123-123-123-123")
 
     def help_all(self):
+        """ Documentation for help """
         print("Prints a list of existing objects from the json file")
         print("You can use all to load all existing objects or specify")
         print("a classs")

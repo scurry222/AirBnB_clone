@@ -32,6 +32,14 @@ class FileStorage():
             Stores the __objects dictionary in a json file
          reload(self):
              Reads the json file and loads the dictioanry back to __objects
+         references(self):
+             A dictionary that contains string representations of a class as a
+             key and the class as it's value.
+             It returns a dictionary of classes
+         attributes(self):
+             A dictionary of class attributes. Each dictionary has a string
+             representation of a class that contains a dictionary of Attributes
+             as its value
     """
     __file_path = "file.json"
     __objects = {}

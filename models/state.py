@@ -5,8 +5,14 @@ from models.base_model import BaseModel
 
 class State(BaseModel):
     """ State class that inherits attributes from base model
-    Args:
-        BaseModel('class'): include attributes
+
+        Attributes
+        ----------
+        name: str
+           the name of the state
+        state_id: str
+           The identification of the state
+        all attributes from BaseModel are inherited
     """
 
     name = ""
